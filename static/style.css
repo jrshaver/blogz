@@ -1,0 +1,23 @@
+nav {
+    margin-top:20px;
+}
+
+nav a {
+    padding:20px;
+}
+
+input, textarea {
+    display:block;
+    margin:3px 0px;
+}
+
+textarea {
+    margin-bottom:20px;
+    width: 300px;
+    height: 100px;
+}
+
+.error {
+    color:red;
+    font-weight: bold;
+}
