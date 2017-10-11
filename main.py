@@ -1,4 +1,4 @@
-from flask import Flask, request, redirect, render_template, flash, url_for
+from flask import Flask, request, redirect, render_template, flash
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
@@ -41,7 +41,7 @@ def index():
         db.session.add(new_blog)
         db.session.commit()
         blog_id=new_blog.id
-        return redirect(url_for("index",id=blog_id))
+        return redirect("/blog?id=" + str(blog_id))
 
     blog_posts=Blog.query.order_by(Blog.pub_date.desc()).all()
 
