@@ -2,17 +2,25 @@
 <html>
     <head>
         <title>{{title}}</title>
-        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css')}}" />
+        <link rel="stylesheet" type="text/css" href="static/css/style1.css" />
     </head>
     <body>
 
-         <div><a href="./logout">Log out</a></div>
-
-        <nav>
-        <a href="/blog">Main Blog Page</a>
-        <a href="/newpost">Add a Blog Entry</a>
+        <nav id="nav_left">
+            <a href="./blog">All Blogz</a>
+            <a href="./user_list">List of Users</a>
+            <a href="./newpost">Add a Blog Entry</a>
+        </nav>
+        <nav id="nav_right">
+        {% if session['username'] %}
+            <a href="./logout">Logout</a>
+        {% else %}
+            <a href="./register">Register</a>
+            <a href="./login">Login</a>
+        {% endif %}
         </nav>
 
+        <hr />
         {% with messages = get_flashed_messages(with_categories=True) %}
             <ul>
             {% for category,message in messages %}

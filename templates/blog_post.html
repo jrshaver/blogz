@@ -3,6 +3,7 @@
 {% block content %}
 
 <h1>{{blog_id.title}}</h1>
- <p>{{blog_id.body}}</p>
+<p>{{blog_id.body}}</p>
+<h5>Written by <a href="./users?username={{owner_id.username}}">{{owner_id.username}}</a>, ({{blog_id.pub_date}})</h5>
 
 {% endblock %}
