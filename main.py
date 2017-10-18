@@ -1,4 +1,4 @@
-from flask import Flask, request, redirect, render_template, flash, session
+from flask import Flask, request, redirect, render_template, flash, session, url_for
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
@@ -40,7 +40,7 @@ class User(db.Model):
 
 @app.before_request
 def require_login():
-    allowed_routes = ["login","register","index","user_list","single_user_page","logout"]
+    allowed_routes = ["login","register","index","user_list","single_user_page","logout","static"]
     if request.endpoint not in allowed_routes and "username" not in session:
         return redirect("/login")
 
