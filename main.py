@@ -59,7 +59,7 @@ def login():
         else:
             flash("User/password incorrect or user does not exist", "error")
 
-    return render_template("login.html")
+    return render_template("login.html", title="Log in")
 
 @app.route("/register", methods=["POST","GET"])
 def register():
@@ -121,7 +121,7 @@ def index():
         id=request.args.get("id")
         blog_id=Blog.query.filter_by(id=id).first()
         owner_id=blog_id.owner
-        return render_template("blog_post.html", title="Blog Post", blog_id=blog_id, owner_id=owner_id)
+        return render_template("blog_post.html", title=blog_id.title, blog_id=blog_id, owner_id=owner_id)
 
     return render_template("index.html", title="Blogz", blog_posts=blog_posts)
 
