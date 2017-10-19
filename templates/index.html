@@ -10,6 +10,7 @@
     {% for blog_post in blog_posts %}
         <h2><a href="./blog?id={{blog_post.id}}">{{blog_post.title}}</a></h2>
         <p>{{blog_post.body}}</p>
+        <p>by <a href="./users?username={{blog_post.owner.username}}">{{blog_post.owner.username}}</a></p>
         <hr />
     {% endfor %}
 {% endif %}
